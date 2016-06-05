@@ -46,7 +46,7 @@ public class player2_controller : MonoBehaviour
         // If the F key is hit transform the object
         if (Input.GetKey(KeyCode.RightControl) && Time.time > nextTransfrom)
         {
-            transform();
+            transformation();
             nextTransfrom = Time.time + transfromDelay;
         }
 
@@ -73,7 +73,7 @@ public class player2_controller : MonoBehaviour
     }
 
 
-    void transform()
+    void transformation()
     {
         // Iterate the current form
         current_form = (current_form + 1) % 3;
