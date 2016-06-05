@@ -100,7 +100,7 @@ GameObject:
   - 114: {fileID: 97232086}
   m_Layer: 0
   m_Name: player_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,12 +173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2cd9cd732a9a540aad24de0863e794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundary:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
+  rock: {fileID: 189212, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
+  paper: {fileID: 187196, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
+  scissor: {fileID: 118462, guid: 8b33a665a702d79418b0ca6c0cce7212, type: 2}
+  transfromDelay: 1
   speed: 5
+  health: 100
 --- !u!54 &97232087
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ GameObject:
   - 114: {fileID: 1120968489}
   m_Layer: 0
   m_Name: player_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,11 +642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7312455b4945f429747ba91582c8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundary:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
+  rock: {fileID: 189212, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
+  paper: {fileID: 187196, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
+  scissor: {fileID: 118462, guid: 8b33a665a702d79418b0ca6c0cce7212, type: 2}
+  transfromDelay: 1
   speed: 5
 --- !u!65 &1120968490
 BoxCollider:
