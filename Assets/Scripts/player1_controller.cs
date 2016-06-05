@@ -99,4 +99,10 @@ public class player1_controller : MonoBehaviour
         // Returns the current form of the player
         return current_form;
     }
+
+    public int getHealth()
+    {
+        // Returns the health of the player
+        return health;
+    }
 }
