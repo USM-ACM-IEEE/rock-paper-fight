@@ -3,6 +3,8 @@ using System.Collections;
 
 public class player_controller : MonoBehaviour
 {
+	public game_controller game;
+
     // GameObject for the diferent forms of the player
     public GameObject rock;     // 0
     public GameObject paper;    // 1
@@ -24,26 +26,35 @@ public class player_controller : MonoBehaviour
     public int crit_damage;                 // The multiplier for when the super effective opponent is hit
 
     public int health;                      // This is the health the player will start with it will also track the players current health
+	public bool canMove;
 
     void Start()
     {
+		GameObject _game = GameObject.Find("Game Controller");
+		game = _game.GetComponent<game_controller> ();
+
         // Initalize the ridgid body
         rb = GetComponent<Rigidbody>();
 
 		GameObject opp = GameObject.Find(other_player);
         opponent = opp.GetComponent<player_controller>();
+
+		canMove = true;
     }
 
     void FixedUpdate()
     {
-        // Get the transform from the set controls
-		float moveHorizontal = Input.GetAxis("Horizontal_" + player.ToString());
-		float moveVeritcal = Input.GetAxis("Vertical_" + player.ToString());
+		if (canMove) 
+		{
+			// Get the transform from the set controls
+			float moveHorizontal = Input.GetAxis("Horizontal_" + player.ToString());
+			float moveVeritcal = Input.GetAxis("Vertical_" + player.ToString());
 
-        // Calculate and set the new movement variables
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
-        rb.velocity = movement * speed;
-        rb.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+			// Calculate and set the new movement variables
+			Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
+			rb.velocity = movement * speed;
+			rb.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+		}
     }
 
     void Update()
@@ -66,10 +77,14 @@ public class player_controller : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-			if (opponent.getCurrentForm() == (current_form + 1) % 3)
-            {
-                health -= 10 * crit_damage;
-            }
+			if (opponent.getCurrentForm () == (current_form + 1) % 3) 
+			{
+				health -= 10 * crit_damage;
+			} else 
+			{
+				// Stop players from moving
+				game.FreezeControlls(0.5F);
+			}
         }
     }
 

@@ -29,4 +29,20 @@ public class game_controller : MonoBehaviour {
         player1_health_text.text = player1.getHealth().ToString();
         player2_health_text.text = player2.getHealth().ToString();
 	}
+
+	public void FreezeControlls(float delay)
+	{
+		player1.canMove = false;
+		player2.canMove = false;
+
+		StartCoroutine (UnfreezeControlls(delay));
+	}
+
+	IEnumerator UnfreezeControlls(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+
+		player1.canMove = true;
+		player2.canMove = true;
+	}
 }
