@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class player2_controller : MonoBehaviour
+public class player_controller : MonoBehaviour
 {
     // GameObject for the diferent forms of the player
     public GameObject rock;     // 0
@@ -9,7 +9,10 @@ public class player2_controller : MonoBehaviour
     public GameObject scissor;  // 2
 
     // The oppenents script for passing information between one another
-    public player1_controller opponent;
+    public player_controller opponent;
+	public string other_player;
+	public int player;
+	public string transform_button;
 
     // Tacks the current state of the player
     private int current_form = 0;
@@ -27,15 +30,17 @@ public class player2_controller : MonoBehaviour
         // Initalize the ridgid body
         rb = GetComponent<Rigidbody>();
 
-        GameObject opp = GameObject.Find("player_1");
-        opponent = opp.GetComponent<player1_controller>();
+		GameObject opp = GameObject.Find(other_player);
+        opponent = opp.GetComponent<player_controller>();
     }
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal_2");
-        float moveVeritcal = Input.GetAxis("Vertical_2");
+        // Get the transform from the set controls
+		float moveHorizontal = Input.GetAxis("Horizontal_" + player.ToString());
+		float moveVeritcal = Input.GetAxis("Vertical_" + player.ToString());
 
+        // Calculate and set the new movement variables
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
         rb.velocity = movement * speed;
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -44,13 +49,13 @@ public class player2_controller : MonoBehaviour
     void Update()
     {
         // If the F key is hit transform the object
-        if (Input.GetKey(KeyCode.RightControl) && Time.time > nextTransfrom)
+		if(Input.GetKey (transform_button) && Time.time > nextTransfrom)
         {
             transformation();
             nextTransfrom = Time.time + transfromDelay;
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
             // If the player has run out of health destroy the player
             Destroy(gameObject);
@@ -59,19 +64,14 @@ public class player2_controller : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            if(opponent.getCurrentForm() == current_form)
-            {
-                health -= 10;
-            }
-            else if(opponent.getCurrentForm() == (current_form+1)%3)
+			if (opponent.getCurrentForm() == (current_form + 1) % 3)
             {
                 health -= 10 * crit_damage;
             }
         }
     }
-
 
     void transformation()
     {

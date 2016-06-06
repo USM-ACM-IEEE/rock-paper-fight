@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class game_controller : MonoBehaviour {
 
     // holds a refernce to the scripts for each player
-    public player1_controller player1;
-    public player2_controller player2;
+    public player_controller player1;
+    public player_controller player2;
 
     // Holds a reference to the players heath text
     public Text player1_health_text;
@@ -17,10 +17,10 @@ public class game_controller : MonoBehaviour {
     {
         // Initialize the scripts
         GameObject player_1 = GameObject.Find("player_1");
-        player1 = player_1.GetComponent<player1_controller>();
+        player1 = player_1.GetComponent<player_controller>();
 
         GameObject player_2 = GameObject.Find("player_2");
-        player2 = player_2.GetComponent<player2_controller>();
+        player2 = player_2.GetComponent<player_controller>();
 	}
 	
 	// Update is called once per frame
