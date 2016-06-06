@@ -8,10 +8,6 @@ public class game_controller : MonoBehaviour {
     public player_controller player1;
     public player_controller player2;
 
-    // Holds a reference to the players heath text
-    public Text player1_health_text;
-    public Text player2_health_text;
-
 	// Use this for initialization
 	void Start () 
     {
@@ -21,13 +17,6 @@ public class game_controller : MonoBehaviour {
 
         GameObject player_2 = GameObject.Find("player_2");
         player2 = player_2.GetComponent<player_controller>();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        player1_health_text.text = player1.getHealth().ToString();
-        player2_health_text.text = player2.getHealth().ToString();
 	}
 
 	public void FreezeControlls(float delay)
