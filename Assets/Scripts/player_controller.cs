@@ -80,7 +80,8 @@ public class player_controller : MonoBehaviour
 			if (opponent.getCurrentForm () == (current_form + 1) % 3) 
 			{
 				health -= 10 * crit_damage;
-			} else 
+			} 
+			else 
 			{
 				// Stop players from moving
 				game.FreezeControlls(0.5F);
