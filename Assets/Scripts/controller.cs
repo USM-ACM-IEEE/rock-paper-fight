@@ -9,6 +9,8 @@ using System.Collections;
 public class controller : MonoBehaviour {
 
 	public game_controller game;		// This gives a reference to the game to asertain the global player variables
+	public string controller_name;		// This will be used to identify which controller each instance of a controller object is controllign
+
 
 	// MeshFilters for the diferent forms of the player
 	public MeshFilter rock;     // 0
