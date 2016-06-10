@@ -160,7 +160,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 0.5, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -175,19 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25b8a059e1e04903ab815a99f8d6279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
-  rock: {fileID: 189212, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
-  paper: {fileID: 187196, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
-  scissor: {fileID: 118462, guid: 8b33a665a702d79418b0ca6c0cce7212, type: 2}
-  opponent: {fileID: 0}
-  other_player: player_2
-  player: 1
+  game: {fileID: 1287856579}
+  controller_name: player_1
+  rock: {fileID: 3363776, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
+  paper: {fileID: 3354020, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
+  scissors: {fileID: 3384976, guid: f127581e5e11db146ae5fa633f5b0573, type: 2}
   transform_button: f
-  transfromDelay: 1
-  speed: 5
-  crit_damage: 10
-  health: 100
-  canMove: 0
 --- !u!54 &97232087
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -273,7 +265,6 @@ Transform:
   m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
   m_LocalPosition: {x: 3.62, y: 3.99, z: -2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -301,7 +292,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 423884016}
   - {fileID: 2130199319}
@@ -334,7 +324,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -5.5}
   m_LocalScale: {x: 10, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 423884016}
   m_RootOrder: 3
@@ -466,7 +455,6 @@ Transform:
   m_LocalRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
   m_LocalPosition: {x: 0.03, y: 9.13, z: -11.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -494,7 +482,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1849982655}
   - {fileID: 1150226190}
@@ -529,7 +516,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 12}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 423884016}
   m_RootOrder: 2
@@ -650,7 +636,6 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 1}
-  m_LocalEulerAnglesHint: {x: 89.980194, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -732,7 +717,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 0.5, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -747,19 +731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25b8a059e1e04903ab815a99f8d6279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
-  rock: {fileID: 189212, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
-  paper: {fileID: 187196, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
-  scissor: {fileID: 118462, guid: 8b33a665a702d79418b0ca6c0cce7212, type: 2}
-  opponent: {fileID: 0}
-  other_player: player_1
-  player: 2
+  game: {fileID: 1287856579}
+  controller_name: player_2
+  rock: {fileID: 3363776, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
+  paper: {fileID: 3354020, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
+  scissors: {fileID: 3384976, guid: f127581e5e11db146ae5fa633f5b0573, type: 2}
   transform_button: right shift
-  transfromDelay: 1
-  speed: 5
-  crit_damage: 10
-  health: 100
-  canMove: 0
 --- !u!65 &1120968490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -811,7 +788,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 12}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 423884016}
   m_RootOrder: 1
@@ -887,8 +863,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b25c6fcb63f994489bb6a364afecea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  player1: {fileID: 97232086}
+  player2: {fileID: 1120968489}
+  player1_object_name: player_1
+  player2_object_name: player_2
+  player_configurations:
+    transform_cooldown: 1
+    speed: 5
+    controlls_delay_on_hit: 0.5
 --- !u!4 &1287856580
 Transform:
   m_ObjectHideFlags: 0
@@ -898,7 +880,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.13285637, y: -0.46397126, z: -0.8331456}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -929,7 +910,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 5.5}
   m_LocalScale: {x: 10, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 423884016}
   m_RootOrder: 0
@@ -1050,7 +1030,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 144984251}
   m_RootOrder: 1

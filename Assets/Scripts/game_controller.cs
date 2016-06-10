@@ -2,27 +2,40 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class playerConfig: System.Object {
+	public float transform_cooldown;
+	public float speed;
+	public float controlls_delay_on_hit;
+}
+
+
 public class game_controller : MonoBehaviour {
 
     // holds a refernce to the scripts for each player
-    public player_controller player1;
-    public player_controller player2;
+	public controller player1;
+    public controller player2;
+
+	public string player1_object_name;
+	public string player2_object_name;
+
+	public playerConfig player_configurations;
 
 	// Use this for initialization
 	void Start () 
     {
         // Initialize the scripts
-        GameObject player_1 = GameObject.Find("player_1");
-        player1 = player_1.GetComponent<player_controller>();
+		GameObject player_1 = GameObject.Find(player1_object_name);
+        player1 = player_1.GetComponent<controller>();
 
-        GameObject player_2 = GameObject.Find("player_2");
-        player2 = player_2.GetComponent<player_controller>();
+		GameObject player_2 = GameObject.Find(player2_object_name);
+        player2 = player_2.GetComponent<controller>();
 	}
 
 	public void FreezeControlls(float delay)
 	{
-		player1.canMove = false;
-		player2.canMove = false;
+		player1.setCanMove(false);
+		player2.setCanMove(false);
 
 		StartCoroutine (UnfreezeControlls(delay));
 	}
@@ -31,7 +44,7 @@ public class game_controller : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(delay);
 
-		player1.canMove = true;
-		player2.canMove = true;
+		player1.setCanMove(true);
+		player2.setCanMove(true);
 	}
 }
