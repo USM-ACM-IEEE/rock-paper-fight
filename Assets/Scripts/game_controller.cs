@@ -32,6 +32,7 @@ public class game_controller : MonoBehaviour {
         player2 = player_2.GetComponent<controller>();
 	}
 
+	// This function will stop the players from adding movement to their respective objects
 	public void FreezeControlls(float delay)
 	{
 		player1.setCanMove(false);
@@ -40,6 +41,7 @@ public class game_controller : MonoBehaviour {
 		StartCoroutine (UnfreezeControlls(delay));
 	}
 
+	// This is a coroutine that will unfreeze the players controllers after the given number of seconds
 	IEnumerator UnfreezeControlls(float delay)
 	{
 		yield return new WaitForSeconds(delay);
