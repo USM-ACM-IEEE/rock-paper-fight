@@ -4,7 +4,9 @@ using System.Collections;
 public class player_controller : controller
 {
 	private Rigidbody rb;
-	public string transform_button;
+	public string Rock_Transform_Button;
+	public string Paper_Transform_Button;
+	public string Scissors_Transform_button;
 
 	protected override void Start()
     {
@@ -32,10 +34,16 @@ public class player_controller : controller
     void Update()
     {
         // If the transform button key is hit transform the object
-		if(Input.GetKey (transform_button))
+		if (Input.GetKey (Rock_Transform_Button)) {
+			switchForm (0);
+		}
+		if (Input.GetKey (Paper_Transform_Button)) {
+			switchForm (1);
+		}
+		if(Input.GetKey (Scissors_Transform_button))
         {
 			// Currently pressing the transform button iterates through the forms
-			switchForm ((getForm()+1) % 3);
+			switchForm (2);
         }
     }
 

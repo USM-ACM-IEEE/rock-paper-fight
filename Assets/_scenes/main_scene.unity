@@ -180,7 +180,9 @@ MonoBehaviour:
   rock: {fileID: 3363776, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
   paper: {fileID: 3354020, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
   scissors: {fileID: 3384976, guid: f127581e5e11db146ae5fa633f5b0573, type: 2}
-  transform_button: f
+  Rock_Transform_Button: 1
+  Paper_Transform_Button: 2
+  Scissors_Transform_button: 3
 --- !u!54 &97232087
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -974,7 +976,9 @@ MonoBehaviour:
   rock: {fileID: 3363776, guid: 0fd9bc28e57b4f94ba1a574a1613be1c, type: 2}
   paper: {fileID: 3354020, guid: d33bd49c06d1edb4389fe4b1460f9169, type: 2}
   scissors: {fileID: 3384976, guid: f127581e5e11db146ae5fa633f5b0573, type: 2}
-  transform_button: right shift
+  Rock_Transform_Button: ','
+  Paper_Transform_Button: .
+  Scissors_Transform_button: /
 --- !u!65 &1120968490
 BoxCollider:
   m_ObjectHideFlags: 0
