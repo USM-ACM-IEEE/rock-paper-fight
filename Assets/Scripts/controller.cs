@@ -13,7 +13,7 @@ public class controller : MonoBehaviour {
 	public string controller_name;		// This will be used to identify which controller each instance of a controller object is controllign
 
 
-	// MeshFilters for the diferent forms of the player
+	// MeshFilters for the different forms of the player
 	public MeshFilter rock;     	// 0
 	public MeshFilter paper;    	// 1
 	public MeshFilter scissors;  	// 2
@@ -83,13 +83,14 @@ public class controller : MonoBehaviour {
 			// Check if the enemy player is in the form that beats you
 			if (collision.gameObject.GetComponent<controller>().getForm() == (getForm() + 1) % 3) 
 			{
-				// Player has died remove gameObject
-				Destroy (gameObject);
+				// Player has died remove gameObject and reset positions
+				game.ResetGame ();
+				//Destroy (gameObject);
 			} 
 			else 
 			{
 				// Stop players from moving so the push_back animation is not interupted
-				game.FreezeControlls(game.player_configurations.controlls_delay_on_hit);
+				game.FreezeControls(game.player_configurations.controls_delay_on_hit);
 			}
 		}
 	}
