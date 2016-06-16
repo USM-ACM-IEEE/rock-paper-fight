@@ -8,22 +8,34 @@ public class player_controller : controller
 	public string Paper_Transform_Button;
 	public string Scissors_Transform_button;
 
+	private bool controlerIsEnabled;	// Tracks is a controller was detected on the device
+
 	protected override void Start()
     {
 		// Be sure to call the base classes start as well
 		base.Start ();
         // Initalize the ridgid body
         rb = GetComponent<Rigidbody>();
+
+		// Configure controlls, if there is a controller present set the boolean
+		if (Input.GetJoystickNames ().Length != 0) {
+			Rock_Transform_Button = "joystick button 16";
+			Paper_Transform_Button = "joystick button 17";
+			Debug.Log("here");
+		}
     }
 
     void FixedUpdate()
     {
+		// Variables to track the amont of movement
+		float moveHorizontal, moveVeritcal;
+
 		if (canMove()) 
 		{
 			// Get the transform from the set controls
-			float moveHorizontal = Input.GetAxis("Horizontal_" + controller_name);
-			float moveVeritcal = Input.GetAxis("Vertical_" + controller_name);
-
+			moveHorizontal = Input.GetAxis ("Horizontal_" + controller_name);
+			moveVeritcal = Input.GetAxis ("Vertical_" + controller_name);
+		
 			// Calculate and set the new movement variables
 			Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
 			rb.velocity = movement * game.player_configurations.speed;
