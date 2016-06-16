@@ -75,4 +75,22 @@ public class controller : MonoBehaviour {
 	public void setCanMove(bool enabled){
 		movement_enabled = enabled;
 	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Player")
+		{
+			// Check if the enemy player is in the form that beats you
+			if (collision.gameObject.GetComponent<controller>().getForm() == (getForm() + 1) % 3) 
+			{
+				// Player has died remove gameObject
+				Destroy (gameObject);
+			} 
+			else 
+			{
+				// Stop players from moving so the push_back animation is not interupted
+				game.FreezeControlls(game.player_configurations.controlls_delay_on_hit);
+			}
+		}
+	}
 }
