@@ -1108,12 +1108,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 97232086}
   player2: {fileID: 1120968489}
+  p1Score: 0
+  p2Score: 0
   player1_object_name: player_1
   player2_object_name: player_2
+  player1StartPosition: {x: 0, y: 0, z: 0}
+  player2StartPosition: {x: 0, y: 0, z: 0}
   player_configurations:
     transform_cooldown: 1
     speed: 5
-    controlls_delay_on_hit: 0.5
+    controls_delay_on_hit: 0.5
+  resetDelay: 1.5
 --- !u!4 &1287856580
 Transform:
   m_ObjectHideFlags: 0
