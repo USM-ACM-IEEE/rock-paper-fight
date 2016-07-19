@@ -21,8 +21,7 @@ public class player_controller : controller
 		if (Input.GetJoystickNames ().Length != 0) {
 			Rock_Transform_Button = "joystick button 2";
 			Paper_Transform_Button = "joystick button 0";
-			Scissors_Transform_Buttom = "joystick button 1"
-			Debug.Log("here");
+			Scissors_Transform_button = "joystick button 1";
 		}
     }
 
