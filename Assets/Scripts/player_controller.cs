@@ -8,21 +8,33 @@ public class player_controller : controller
 	public string Paper_Transform_Button;
 	public string Scissors_Transform_button;
 
+	private bool controlerIsEnabled;	// Tracks is a controller was detected on the device
+
 	protected override void Start()
     {
 		// Be sure to call the base classes start as well
 		base.Start ();
         // Initalize the ridgid body
         rb = GetComponent<Rigidbody>();
+
+		// Configure controlls, if there is a controller present set the boolean
+		if (Input.GetJoystickNames ().Length != 0) {
+			Rock_Transform_Button = "joystick " + player_number + " button 2";
+			Paper_Transform_Button = "joystick " + player_number + " button 0";
+			Scissors_Transform_button = "joystick " + player_number + " button 1";
+		}
     }
 
     void FixedUpdate()
     {
+		// Variables to track the amont of movement
+		float moveHorizontal, moveVeritcal;
+
 		if (canMove()) 
 		{
 			// Get the transform from the set controls
-			float moveHorizontal = Input.GetAxis("Horizontal_" + controller_name);
-			float moveVeritcal = Input.GetAxis("Vertical_" + controller_name);
+			moveHorizontal = Input.GetAxis ("x axis " + controller_name);
+			moveVeritcal = -1 * Input.GetAxis ("y axis " + controller_name);
 
 			// Calculate and set the new movement variables
 			Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
@@ -46,5 +58,22 @@ public class player_controller : controller
 			switchForm (2);
         }
     }
-		
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+			// Check if the enemy player is in the form that beats you
+			if (collision.gameObject.GetComponent<controller>().getForm() == (getForm() + 1) % 3) 
+			{
+				// Player has died remove gameObject
+				Destroy (gameObject);
+			} 
+			else 
+			{
+				// Stop players from moving so the push_back animation is not interupted
+				game.FreezeControlls(game.player_configurations.controlls_delay_on_hit);
+			}
+        }
+    }
 }
