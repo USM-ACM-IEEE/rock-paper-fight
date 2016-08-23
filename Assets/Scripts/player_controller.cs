@@ -19,9 +19,9 @@ public class player_controller : controller
 
 		// Configure controlls, if there is a controller present set the boolean
 		if (Input.GetJoystickNames ().Length != 0) {
-			Rock_Transform_Button = "joystick button 2";
-			Paper_Transform_Button = "joystick button 0";
-			Scissors_Transform_button = "joystick button 1";
+			Rock_Transform_Button = "joystick " + player_number + " button 2";
+			Paper_Transform_Button = "joystick " + player_number + " button 0";
+			Scissors_Transform_button = "joystick " + player_number + " button 1";
 		}
     }
 
@@ -33,9 +33,9 @@ public class player_controller : controller
 		if (canMove()) 
 		{
 			// Get the transform from the set controls
-			moveHorizontal = Input.GetAxis ("Horizontal_" + controller_name);
-			moveVeritcal = Input.GetAxis ("Vertical_" + controller_name);
-		
+			moveHorizontal = Input.GetAxis ("x axis " + controller_name);
+			moveVeritcal = -1 * Input.GetAxis ("y axis " + controller_name);
+
 			// Calculate and set the new movement variables
 			Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
 			rb.velocity = movement * game.player_configurations.speed;

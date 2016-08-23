@@ -11,7 +11,7 @@ public class controller : MonoBehaviour {
 
 	public game_controller game;		// This gives a reference to the game to asertain the global player variables
 	public string controller_name;		// This will be used to identify which controller each instance of a controller object is controllign
-
+	public int player_number;			// This is the number of the player ie 1 for player one, this is a temporary fix and needs to be thought out
 
 	// MeshFilters for the diferent forms of the player
 	public MeshFilter rock;     	// 0
