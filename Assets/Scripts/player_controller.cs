@@ -73,6 +73,7 @@ public class player_controller : controller
 			{
 				// Stop players from moving so the push_back animation is not interupted
 				game.FreezeControls(game.player_configurations.controls_delay_on_hit);
+
 			}
         }
     }
