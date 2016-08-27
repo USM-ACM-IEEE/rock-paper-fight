@@ -20,7 +20,7 @@ public class player_controller : controller
 		// Configure controlls, if there is a controller present set the boolean
 		if (Input.GetJoystickNames ().Length != 0) {
 			Rock_Transform_Button = "joystick " + player_number + " button 2";
-			Paper_Transform_Button = "joystick " + player_number + " button 0";
+			Paper_Transform_Button = "joystick " + player_number + " button 3";
 			Scissors_Transform_button = "joystick " + player_number + " button 1";
 		}
     }
