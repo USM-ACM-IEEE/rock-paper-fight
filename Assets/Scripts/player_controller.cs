@@ -18,13 +18,11 @@ public class player_controller : controller
         rb = GetComponent<Rigidbody>();
 
 		controlerIsEnabled = Input.GetJoystickNames ().Length >= player_number;
-		Debug.Log (controller_name + " " + controlerIsEnabled);
 		// Configure controlls, if there is a controller present set the boolean
 		if (controlerIsEnabled) {
 			Rock_Transform_Button = "joystick " + player_number + " button 2";
 			Paper_Transform_Button = "joystick " + player_number + " button 3";
 			Scissors_Transform_button = "joystick " + player_number + " button 1";
-			Debug.Log (Input.GetJoystickNames().Length);
 		} else {
 			// Use what is in the unity editior
 		}

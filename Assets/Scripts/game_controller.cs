@@ -78,10 +78,8 @@ public class game_controller : MonoBehaviour {
 		//Call the prompt for continue or reset
 
 		player_1.GetComponent<Transform>().position = player1StartPosition;
-		Debug.Log("Talk shit");
 
 		player_2.GetComponent<Transform>().position = player2StartPosition;
-		Debug.Log("Get Hit");
 
 		//If reset, reset the player scores to 0
 		/*if(NewGamePrompt())
