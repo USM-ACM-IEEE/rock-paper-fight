@@ -17,11 +17,16 @@ public class player_controller : controller
         // Initalize the ridgid body
         rb = GetComponent<Rigidbody>();
 
+		controlerIsEnabled = Input.GetJoystickNames ().Length >= player_number;
+		Debug.Log (controller_name + " " + controlerIsEnabled);
 		// Configure controlls, if there is a controller present set the boolean
-		if (Input.GetJoystickNames ().Length != 0) {
+		if (controlerIsEnabled) {
 			Rock_Transform_Button = "joystick " + player_number + " button 2";
-			Paper_Transform_Button = "joystick " + player_number + " button 0";
+			Paper_Transform_Button = "joystick " + player_number + " button 3";
 			Scissors_Transform_button = "joystick " + player_number + " button 1";
+			Debug.Log (Input.GetJoystickNames().Length);
+		} else {
+			// Use what is in the unity editior
 		}
     }
 
@@ -32,14 +37,25 @@ public class player_controller : controller
 
 		if (canMove()) 
 		{
-			// Get the transform from the set controls
-			moveHorizontal = Input.GetAxis ("x axis " + controller_name);
-			moveVeritcal = -1 * Input.GetAxis ("y axis " + controller_name);
+			if (controlerIsEnabled) {
+				// Get the transform from the set controls
+				moveHorizontal = Input.GetAxis ("x axis " + controller_name);
+				moveVeritcal = -1 * Input.GetAxis ("y axis " + controller_name);
 
-			// Calculate and set the new movement variables
-			Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
-			rb.velocity = movement * game.player_configurations.speed;
-			rb.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+				// Calculate and set the new movement variables
+				Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVeritcal);
+				rb.velocity = movement * game.player_configurations.speed;
+				rb.rotation = Quaternion.Euler (0.0f, 0.0f, 0.0f);
+			} else {
+				// Get the transform from the set controls
+				moveHorizontal = Input.GetAxis ("alt x axis " + controller_name);
+				moveVeritcal = -1 * Input.GetAxis ("alt y axis " + controller_name);
+
+				// Calculate and set the new movement variables
+				Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVeritcal);
+				rb.velocity = movement * game.player_configurations.speed;
+				rb.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+			}
 		}
     }
 
