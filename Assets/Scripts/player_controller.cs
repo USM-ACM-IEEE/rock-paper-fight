@@ -7,6 +7,7 @@ public class player_controller : controller
 	public string Rock_Transform_Button;
 	public string Paper_Transform_Button;
 	public string Scissors_Transform_button;
+	public string Jump_Button;
 
 	private bool controlerIsEnabled;	// Tracks is a controller was detected on the device
 
@@ -66,11 +67,14 @@ public class player_controller : controller
 		if (Input.GetKey (Paper_Transform_Button)) {
 			switchForm (1);
 		}
-		if(Input.GetKey (Scissors_Transform_button))
+		if (Input.GetKey (Scissors_Transform_button))
         {
 			// Currently pressing the transform button iterates through the forms
 			switchForm (2);
         }
+		if (Input.GetKey (Jump_Button)) {
+
+		}
     }
 
     void OnCollisionEnter(Collision collision)
